@@ -1,4 +1,4 @@
-name: Generate Sitemap
+name: Generate & Deploy Sitemap
 
 on:
   push:
@@ -25,8 +25,11 @@ jobs:
         run: |
           python url_crawler_runner.py
 
-      - name: Upload sitemap.xml as artifact (for test)
-        uses: actions/upload-artifact@v4
+      - name: Deploy sitemap.xml to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          name: sitemap
-          path: sitemap.xml
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./
+          publish_branch: gh-pages
+          keep_files: true
+          allow_empty_commit: true

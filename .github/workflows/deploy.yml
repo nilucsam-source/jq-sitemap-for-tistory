@@ -26,7 +26,7 @@ jobs:
           python url_crawler_runner.py
 
       - name: Upload sitemap.xml as artifact (for test)
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v3.1
         with:
           name: sitemap
           path: sitemap.xml

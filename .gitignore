@@ -172,3 +172,19 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# 결과물
+sitemap.xml
+
+# IDE/환경 관련
+.vscode/
+__pycache__/
+*.pyc
+.env
+.DS_Store
+
+# 개발 관련
+.history/
+/devtools/
+/_temp/
+*.dev.json.history

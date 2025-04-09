@@ -3,6 +3,8 @@ name: Generate & Deploy Sitemap
 on:
   push:
     branches: [main] # 또는 master
+  schedule:
+    - cron: "0 18 * * *" # UTC 18:00 → KST 새벽 3:00
 
 jobs:
   build:

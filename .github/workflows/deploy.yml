@@ -1,0 +1,32 @@
+name: Generate Sitemap
+
+on:
+  push:
+    branches: [main] # 또는 master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt || true
+
+      - name: Generate Sitemap
+        run: |
+          python url_crawler_runner.py
+
+      - name: Upload sitemap.xml as artifact (for test)
+        uses: actions/upload-artifact@v3
+        with:
+          name: sitemap
+          path: sitemap.xml

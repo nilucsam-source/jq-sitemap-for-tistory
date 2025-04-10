@@ -2,9 +2,10 @@ name: Generate & Deploy Sitemap
 
 on:
   push:
-    branches: [main] # 또는 master
+    branches: [main]
   schedule:
-    - cron: "0 18 * * *" # UTC 18:00 → KST 새벽 3:00
+    - cron: "0 18 * * *" # 매일 새벽 3시 (KST)
+  workflow_dispatch: # ✅ 수동 실행 추가
 
 jobs:
   build:
